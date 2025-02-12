@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Theatres - BookMyShow Clone</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .theatre-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Add Theatre</h1>
+        <form id="theatreForm" class="mt-4">
+            <div class="form-group">
+                <label for="theatreName">Theatre Name</label>
+                <input type="text" class="form-control" id="theatreName" placeholder="Enter theatre name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" placeholder="Enter location" required>
+            </div>
+            <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <input type="number" class="form-control" id="capacity" placeholder="Enter capacity" required>
+            </div>
+            <div class="form-group">
+                <label for="screens">Number of Screens</label>
+                <input type="number" class="form-control" id="screens" placeholder="Enter number of screens" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Theatre</button>
+        </form>
+
+        <div class="theatre-list mt-5">
+            <h2>List of Theatres</h2>
+            <ul id="theatreList" class="list-group"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('theatreForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const theatreName = document.getElementById('theatreName').value;
+            const location = document.getElementById('location').value;
+            const capacity = document.getElementById('capacity').value;
+            const screens = document.getElementById('screens').value;
+
+            // Create a list item for the theatre
+            const theatreList = document.getElementById('theatreList');
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.textContent = `${theatreName}, Location: ${location}, Capacity: ${capacity}, Screens: ${screens}`;
+            theatreList.appendChild(listItem);
+
+            // Clear the form inputs
+            document.getElementById('theatreForm').reset();
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

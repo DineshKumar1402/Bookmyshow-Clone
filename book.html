@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Book Movie Tickets</h1>
+
+    <form id="bookingForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="movie">Select Movie:</label>
+        <select id="movie" name="movie" required>
+            <option value="" disabled selected>Select a movie</option>
+            <option value="movie1">The Goat</option>
+            <option value="movie2">Puspa 2</option>
+            <option value="movie3">Devara</option>
+            <option value="movie3">Deadpool</option>
+            <option value="movie3">Demonte colony 2</option>
+            <option value="movie3">Amaran</option>
+        </select>
+
+        <label for="theater">Theatre</label>
+        <select id="theater" name="theater" required>
+            <option value="" disabled selected>Choose the theater</option>
+            <option value="theater1">Kasi Theater</option>
+            <option value="theater2">National theater</option>
+            <option value="theater3">Vetri theater</option>
+            <option value="theater4">PVR Inox</option>
+            <option value="theater5">Ega theater</option>
+            <option value="theater6">Sangam Theater</option>
+        </select>
+
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number" id="tickets" name="tickets" min="1" max="10" required>
+
+        <button type="submit">Book Tickets</button>
+    </form>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const movie = document.getElementById('movie').value;
+            const theater = document.getElementById('theater').value;
+            const tickets = document.getElementById('tickets').value;
+            
+            // Display confirmation (in a real application, you might send this data to a server)
+            alert(`Tickets booked!\n\nName: ${name}\nEmail: ${email}\nMovie: ${movie}\nTheatre: ${theater}\nNumber of Tickets: ${tickets}`);
+        });
+    </script>
+
+</body>
+</html>
